@@ -29,49 +29,8 @@ login_data = {
     "email": "your_email@example.com",  # Replace with your email
     "password": "your_password"         # Replace with your password
 }
-How It Works
-Login: The script sends a GET request to the Truphone login page to fetch a CSRF token (if required). After extracting the token (if available), it logs in using the provided email and password.
 
-Data Extraction: After logging in, the script iterates through the provided list of ICCID values. For each SIM card, it fetches the usage data and extracts:
 
-Usage Since First Activation (in MB or GB)
-Total Rate Plans Used
-The extracted data is stored in a JSON format.
+#Sample output:
 
-Results: The final output is a list of JSON objects, where each object contains:
-
-ICCID: The SIM card identifier.
-usage: The data usage since first activation (e.g., 150.5 MB).
-unit: The unit of measurement (MB or GB).
-rate_plan: The total number of rate plans used.
-Example Output
-The script outputs a list of JSON objects in the following format:
-
-json
-Copy code
-[
-    {
-        "ICCID": "SIM_ICCID_1",
-        "usage": "150.5",
-        "unit": "MB",
-        "rate_plan": "3"
-    },
-    {
-        "ICCID": "SIM_ICCID_2",
-        "usage": "2.5",
-        "unit": "GB",
-        "rate_plan": "1"
-    }
-]
-Usage
-Edit the script: Set your list_SIM with the ICCDs you wish to query and provide your Truphone login credentials.
-
-Run the script: Execute the script using Python:
-
-Copy code
-python truphone_usage_scraper.py
-Check the output: The script will print the JSON results to the console, containing the usage data for each SIM card.
-Notes
-The script sleeps for 1 second between requests to avoid overloading the Truphone servers.
-Ensure that you have the correct permissions to access the required data on the Truphone platform.
-If you encounter any issues with the CSRF token or login, check that your credentials are correct and that the login process is functioning as expected.
+{"ICCID": "124343342342342", "usage": "252.82", "unit": "MB", "rate_plan": "1", "Primary IMSI": "12312312323", "Additional IMSI's": "208090082920238\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t204080923287079\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t234259996682045\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t310300996626053\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t505389996626045\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t454089996626053\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t214279996626039\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t204339996676027\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t262429996626013\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t260339996626032\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t208129996607983", "Primary MSISDN": "23123123", "Additional MSISDN's": "N/A", "Type": "Mini-SIM", "Initial PIN1": "1231", "Initial PIN2": "12312312", "PUK1": "1231213", "PUK2": "12312312", "Provisioned Date": "2023/05/23 07:48 UTC", "Shipping Date": "2023/05/23 07:48 UTC", "Delivery Date": "2023/05/23 07:48 UTC", "Date First Activated": "2023/10/09 08:20 UTC", "Rate Plan": "example", "Total Rate Plans Used": "1", "Billing Cycle": "", "Label": "example ", "Description": " Truphone", "SIM Card": "Active", "Data Service": "Active", "SMS MO Service": "Active", "SMS MT Service": "Active", "Current Device": "86053706700402\n\t\t\t\n\t\t\t\t\u00a0(SIMCOM Wireless Solutions Co Ltd - SIM7600E,SIM7600EI,SIM7600EI-H)", "Last Location": "Malaysia / MMS & MB  (Last Date Seen:&nbsp2025/01/16 11:43 UTC)", "Status": "Offline", "Start Date": "N/A", "IP Address": "N/A", "Last Call Detail Record": "Data", "Monthly Data Usage": "6.05 MB", "Monthly Number Of Connections": "", "Monthly Outbound SMS": "0 SMS", "Usage Since First Activation": "252.82 MB", "Usage On Current Rate Plan": "252.82 MB"},
